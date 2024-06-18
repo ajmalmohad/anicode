@@ -28,6 +28,13 @@ while (i < 10){
   },
   {
     content: `let i =0;
+while (i < 22){
+    i++;
+}`,
+    preview: "/images/preview/slide2.png",
+  },
+  {
+    content: `let i =0;
 while (i < 10){
     i++;
     console.log("hello");
