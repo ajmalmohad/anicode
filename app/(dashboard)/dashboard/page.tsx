@@ -40,7 +40,7 @@ export default function PresentationPage() {
   const [slides, setSlides] = useState(dummySlides);
   const [selectedSlide, setSelectedSlide] = useState(0);
   const slideRef = useRef(null);
-  const [language, setLanguage] = useState("js");
+  const [language, setLanguage] = useState("javascript");
   const [preview, setPreview] = useState(false);
 
   useEffect(() => {
@@ -110,11 +110,11 @@ export default function PresentationPage() {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Language</SelectLabel>
-              <SelectItem value="js">Javascript</SelectItem>
-              <SelectItem value="py">Python</SelectItem>
+              <SelectItem value="javascript">Javascript</SelectItem>
+              <SelectItem value="python">Python</SelectItem>
               <SelectItem value="cpp">C++</SelectItem>
               <SelectItem value="go">Go</SelectItem>
-              <SelectItem value="ts">Typescript</SelectItem>
+              <SelectItem value="typescript">Typescript</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { diffWords } from "diff";
+import { CodeSnippet } from "./code-snippet";
 
 export function SlidePlay({ slideRef, slides, current, language }) {
   const [selectedSlide, setSelectedSlide] = useState(current);
@@ -57,18 +58,22 @@ export function SlidePlay({ slideRef, slides, current, language }) {
           style={{ backgroundColor: "transparent" }}
           className="bg-transparent font-code"
         >
-          <code className="font-code">
+          <div className="font-code">
             {diffedWords.map((part, index) => {
               return (
                 <span
                   key={index}
                   className={`${part.added ? "animate-fade-up" : ""} ${part.removed ? "animate-fade-out fill-mode-forwards" : ""}`}
                 >
-                  <span>{part.value}</span>
+                  <CodeSnippet
+                    key={part.value}
+                    content={part.value}
+                    language={language}
+                  />
                 </span>
               );
             })}
-          </code>
+          </div>
         </pre>
       </div>
     </div>
