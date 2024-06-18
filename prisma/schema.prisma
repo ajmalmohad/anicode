@@ -50,8 +50,24 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
-  accounts Account[]
-  sessions Session[]
+  accounts      Account[]
+  sessions      Session[]
+  presentations Presentation[]
 
   @@map(name: "users")
+}
+
+model Presentation {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  slides      Json[]
+  userId      String
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map(name: "presentations")
 }
